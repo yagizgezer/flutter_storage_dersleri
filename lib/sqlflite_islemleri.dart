@@ -9,18 +9,20 @@ class SqfliteIslemleri extends StatefulWidget {
 }
 
 class _SqfliteIslemleriState extends State<SqfliteIslemleri> {
+
+  DatabaseHelper databaseHelper;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    databaseHelper = DatabaseHelper();
+  }
+
   @override
   Widget build(BuildContext context) {
 
-    Ogrenci emre=Ogrenci.withID(10, "emre", true);
-    Map olusanMap = emre.toMap();
-    debugPrint(olusanMap['ad_soyad'].toString());
-
-    Ogrenci kopyaEmre = Ogrenci.fromMap(olusanMap);
-    debugPrint(kopyaEmre.toString());
-    var aa=DatabaseHelper().;
-    var bb=DatabaseHelper();
-    var cc=DatabaseHelper();
+    _ekle();
 
 
 
@@ -28,5 +30,14 @@ class _SqfliteIslemleriState extends State<SqfliteIslemleri> {
       appBar: AppBar(title: Text("SqfLite Kullanimi"),),
       body: Center(child: Text("Boş"),),
     );
+  }
+
+  _ekle() async{
+    await databaseHelper.ogrenciEkle(Ogrenci("yeni1",true));
+    await databaseHelper.ogrenciEkle(Ogrenci("yeni2",true));
+    await databaseHelper.ogrenciEkle(Ogrenci("yeni2",true));
+    await databaseHelper.ogrenciEkle(Ogrenci("yeni2",true));
+    await databaseHelper.ogrenciEkle(Ogrenci("yeni2",true));
+    await databaseHelper.ogrenciEkle(Ogrenci("yeni2",true));
   }
 }
