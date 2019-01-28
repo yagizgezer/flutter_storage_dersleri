@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_storage_dersleri/model/ogrenci.dart';
+import 'package:flutter_storage_dersleri/utils/database_helper.dart';
 import 'package:sqflite/sqflite.dart';
 
 class SqfliteIslemleri extends StatefulWidget {
@@ -17,6 +18,9 @@ class _SqfliteIslemleriState extends State<SqfliteIslemleri> {
 
     Ogrenci kopyaEmre = Ogrenci.fromMap(olusanMap);
     debugPrint(kopyaEmre.toString());
+    var aa=DatabaseHelper().;
+    var bb=DatabaseHelper();
+    var cc=DatabaseHelper();
 
 
 
