@@ -66,6 +66,30 @@ class DatabaseHelper{
     return sonuc;
   }
 
+  Future<List<Map<String, dynamic>>> tumOgrenciler() async{
+    var db = await _getDatabase();
+    var sonuc = db.query(_ogrenciTablo, orderBy: '$_columnID DESC');
+    return sonuc;
+  }
+
+  Future<int> ogrenciGuncelle(Ogrenci ogrenci) async{
+    var db = await _getDatabase();
+    var sonuc = db.update(_ogrenciTablo, ogrenci.toMap(), where: '$_columnID = ?', whereArgs: [ogrenci.id]);
+
+    return sonuc;
+  }
+
+  Future<int> ogrenciSil(int id) async{
+
+    var db = await _getDatabase();
+    var sonuc = db.delete(_ogrenciTablo, where: '$_columnID = ?' , whereArgs: [id]);
+    return sonuc;
+    
+  }
+
+
+
+
 
 
 }

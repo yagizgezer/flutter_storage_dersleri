@@ -16,28 +16,15 @@ class _SqfliteIslemleriState extends State<SqfliteIslemleri> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    databaseHelper = DatabaseHelper();
+
   }
 
   @override
   Widget build(BuildContext context) {
-
-    _ekle();
-
-
-
     return Scaffold(
       appBar: AppBar(title: Text("SqfLite Kullanimi"),),
       body: Center(child: Text("Boş"),),
     );
   }
 
-  _ekle() async{
-    await databaseHelper.ogrenciEkle(Ogrenci("yeni1",true));
-    await databaseHelper.ogrenciEkle(Ogrenci("yeni2",true));
-    await databaseHelper.ogrenciEkle(Ogrenci("yeni2",true));
-    await databaseHelper.ogrenciEkle(Ogrenci("yeni2",true));
-    await databaseHelper.ogrenciEkle(Ogrenci("yeni2",true));
-    await databaseHelper.ogrenciEkle(Ogrenci("yeni2",true));
-  }
 }
